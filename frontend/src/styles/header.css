@@ -1,11 +1,13 @@
 header {
-  background: #fff;
-  border-bottom: 1px solid var(--border);
-  padding: 16px 24px;
+  background: #00843d;
+  padding: 14px 32px;
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 12px;
+}
+
+header h1 {
+  color: #fff;
 }
 
 .hero {
@@ -15,7 +17,8 @@ header {
 }
 
 .hero img {
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   border-radius: 4px;
+  background: #fff;
 }

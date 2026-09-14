@@ -1,6 +1,6 @@
 /**
  * @typedef {Object} RegistrationFieldsProps
- * @property {{ id: string, label: string, placeholder: string }[]} fields
+ * @property {{ id: string, label: string, placeholder: string, type?: string }[]} fields
  * @property {Record<string, string>} values
  * @property {(event: import('react').ChangeEvent<HTMLInputElement>) => void} onFieldChange
  */
@@ -8,26 +8,22 @@
 /** @param {RegistrationFieldsProps} props */
 function RegistrationFields({ fields, values, onFieldChange }) {
   return (
-    <>
-      <nav className="registration-labels" aria-label="Campos de cadastro">
-        {fields.map(({ id, label }) => (
-          <p className="registration-option" key={id}>{label}</p>
-        ))}
-      </nav>
-      <nav className="registration-fields">
-        {fields.map(({ id, label, placeholder }) => (
+    <div className="form-questions">
+      {fields.map(({ id, label, placeholder, type = 'text' }) => (
+        <div className="form-question" key={id}>
+          <label className="form-question-label" htmlFor={id}>
+            {label}
+          </label>
           <input
             id={id}
-            key={id}
-            type="text"
+            type={type}
             placeholder={placeholder}
             value={values[id]}
             onChange={onFieldChange}
-            aria-label={label}
           />
-        ))}
-      </nav>
-    </>
+        </div>
+      ))}
+    </div>
   )
 }
 
